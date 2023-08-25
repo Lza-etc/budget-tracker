@@ -25,7 +25,11 @@ const Signin = () => {
   const handleSignIn = (e) => {
     e.preventDefault();
     axios
-      .post("/api/login", credentials)
+      .post("https://budgettrackapi.onrender.com/api/login", credentials,{
+        headers: {
+          'Content-Type': 'application/json'
+        },
+      })
       .then((res) => {
         if (res.status === 201) {
           history.push("/dashboard");

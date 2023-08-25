@@ -16,7 +16,11 @@ const Reset = () => {
     e.preventDefault();
     if (user.password === user.repassword) {
       axios
-        .post("/api/reset", user)
+        .post("https://budgettrackapi.onrender.com/api/reset", user,{
+          headers: {
+            'Content-Type': 'application/json'
+          }}
+    )
         .then((res) => {
           if(res.status === 201){
             console.log('resetted');

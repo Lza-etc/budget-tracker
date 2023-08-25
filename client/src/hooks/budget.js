@@ -14,10 +14,14 @@ export const useBudget=()=>{
       useEffect(() => {
         function getBudget() {
           axios
-            .get("/api/getbudget", {
+            .get("https://budgettrackapi.onrender.com/api/getbudget", {
               params: {
                 id: user.id,
               },
+                headers: {
+                  'Content-Type': 'application/json'
+                },
+          
             })
             .then((res) => {
               if (res.data) {

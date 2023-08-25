@@ -19,7 +19,11 @@ const SignUp = () => {
     if (user.password === user.repassword) {
       setMsg(null)
       axios
-        .post("/api/register", user)
+        .post("https://budgettrackapi.onrender.com/api/register", user,{
+          headers: {
+            'Content-Type': 'application/json'
+          },
+        })
         .then((res) => {
           if(res.status === 200){
             setMsg(res.data)

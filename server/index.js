@@ -7,20 +7,28 @@ const { loginuser,registeruser,reset, userdetails } = require('./controllers/use
 const { connect } = require('./config/database.js');
 const { addactivity, getactivity } = require('./controllers/activity.js');
 const {setbudget,getbudget} = require('./controllers/budget.js');
-const session = require('express-session');
-const cors = require('cors')
+// const session = require('express-session');
+const bodyParser = require("body-parser");
+const cookieParser = require("cookie-parser");
+const session = require('cookie-session');
+const cors = require('cors');
 
 connect();
 const app = express();
 
-app.use(cors());
+app.use(cors({origin: 'http://localhost:3000',
+methods: ['POST', 'PUT', 'GET', 'OPTIONS', 'HEAD'],
+credentials: true}));
 app.use(express.static(path.resolve(__dirname,'../client/build')))
-
+app.use(express.urlencoded({ extended: true }));
 app.use(express.json())
+app.use(cookieParser());
 app.use(session({
   secret: 'sfjsk,akqklqkqkel',
   saveUninitialized: true,
-  resave: true
+  resave: false,
+    cookie: { secure: true, sameSite: "none", maxAge: 7 * 24 * 60 * 60 * 1000 ,httpOnly: false,},
+  
 }))
 
 

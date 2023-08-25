@@ -97,10 +97,14 @@ export const useActivity = () => {
 
   useEffect(() => {
     axios
-      .get("/api/getactivity", {
+      .get("https://budgettrackapi.onrender.com/api/getactivity", {
         params: {
           user,
         },
+          headers: {
+            'Content-Type': 'application/json'
+          },
+    
       })
       .then((res) => {
         setActivity(res.data);
