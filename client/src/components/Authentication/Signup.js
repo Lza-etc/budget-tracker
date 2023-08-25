@@ -44,7 +44,7 @@ const SignUp = () => {
 
   return (
     <div className='min-vh-100'>
-      <Navbar>
+      <Navbar className="signin">
         <Navbar.Brand>
           <Image src={logo} width="80px" height="80px" />
           MoneyFlow
