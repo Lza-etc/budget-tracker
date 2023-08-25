@@ -9,7 +9,7 @@ export const useUser = () => {
   });
 
   useEffect(() => {
-    axios.get("https://budgettrackapi.onrender.com/api/user",{
+    axios.get("https://budgettrackap.onrender.com/api/user",{
       headers: {
         'Content-Type': 'application/json'
       },}

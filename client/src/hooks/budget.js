@@ -14,7 +14,7 @@ export const useBudget=()=>{
       useEffect(() => {
         function getBudget() {
           axios
-            .get("https://budgettrackapi.onrender.com/api/getbudget", {
+            .get("https://budgettrackap.onrender.com/api/getbudget", {
               params: {
                 id: user.id,
               },

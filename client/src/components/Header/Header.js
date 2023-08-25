@@ -20,7 +20,7 @@ const Header = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         
-        axios.post('https://budgettrackapi.onrender.com/api/addactivity',{
+        axios.post('https://budgettrackap.onrender.com/api/addactivity',{
             user,expense,
                 headers: {
                   'Content-Type': 'application/json'
