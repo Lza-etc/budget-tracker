@@ -43,7 +43,7 @@ app.post('/api/setbudget',setbudget);
 app.get('/api/getbudget',getbudget);
 
 app.get("*", function (request, response) {
-    response.sendFile(path.resolve(__dirname, "./build", "index.html"));
+    response.sendFile(path.resolve(__dirname, "../client", "index.html"));
   });
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, (err) => {
